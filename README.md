@@ -16,7 +16,15 @@ yarn add react-nextjs-toast
 ## How to use
 
 The component is very simple to use. Just follow the instructions.
+### Add toast container component
+```jsx
+import { ToastContainer } from 'react-nextjs-toast'
 
+//...
+  <ToastContainer />
+//...
+
+```
 ### To show toast 
 ```jsx
 toast.notify( msg, { options } )
@@ -61,8 +69,20 @@ class Card extends React.Component {
 }
 ```
 
+## Toast container props
 
-# Options
+| props | description | Data Type |
+|----------|-------------|-------|
+| align    | left, center, right | *String* |
+| position | top, bottom | *String*|
+| id | Container id ( must be unique ) | *String* |
+
+For example to show toast at the top right
+```jsx
+<ToastContainer align={"right"} position={"top"} id="toast-comp-3"/>
+```
+
+## Toast Options
 
 The toast has 4 types of default events - info, success, error and warning and also supports custom duration.
 
@@ -71,6 +91,9 @@ The toast has 4 types of default events - info, success, error and warning and a
 |----------|-------------|-------|
 | duration | Number of seconds to show toast on screen | *Integer* |
 | type     | Type of toast - info, error, success and warning | *String*|
+| targetId | Target container id | *String* |
+| position | top , bottom  | *String* | 
+| | default value is bottom || 
 
 
 
@@ -85,8 +108,8 @@ toast.notify('This is a success toast', {
 ----
 
 # Todo
-* Demo
 * Custom desing
+* Toast stacking
 
 # Miscellaneous
 

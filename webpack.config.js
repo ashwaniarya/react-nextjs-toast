@@ -2,8 +2,6 @@
 const path = require('path')
 const webpack = require('webpack');
 module.exports = (env, argv) => {
-    console.log(env)
-    console.log(argv)
     if(argv.mode === "development") {
         return module.exports = {
             entry: "./src/index.js",

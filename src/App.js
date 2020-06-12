@@ -1,25 +1,30 @@
 
 import React, { Component} from "react";
 import {ToastContainer, toast} from './toast'
+import RadioInput from './radioinput'
 class App extends Component{
-
+  state = {
+    type: 'info'
+  }
   onClickNotify = (id, position) => {
-    toast.notify('Hello this is a complicated message', {
+    toast.notify('😀 Hello, how are you?', {
       duration: 5,
-      type: 'success',
-      targetId:id,
+      type: this.state.type,
+      targetId: id,
       position
     });
+  }
+  onChangeState = (type) => {
+    this.setState({type})
   }
   render(){
     return(
       <div className="app container">
         <div className="header">
-          <h1>React NextJs Toast</h1>
+          <h1 className="heading-title">React NextJs Toast</h1>
           <h3 className="sub-heading">No complicated setup, just install and start using.</h3>
           <p className="heading-para">An out of the box toast component for nextjs framework or any project using style-jsx.</p>
           <h3><a href="https://github.com/ashwaniarya/react-nextjs-toast/blob/master/README.md" style={{ color: "#fff"}}>DOCS</a></h3>
-
         </div>
         <div className="main-container" style={{ paddingBottom: 24}}>
           <div className="screen-container" style={{ marginBottom: 24}}>
@@ -36,7 +41,7 @@ class App extends Component{
               </div>
             </div>
           </div>
-          <div className="screen-container width-16-9-h400" style={{ backgroundColor: '#ffffff66'}}>
+          <div className="screen-container width-16-9-h400 center" style={{ backgroundColor: '#ffffff66'}}>
             <div className="row jc-space-between position-top width-full">
               <div>
                 <button className="button" onClick={()=>{
@@ -54,7 +59,13 @@ class App extends Component{
                 }}>TOP RIGHT</button>
               </div>
             </div>
-            <div>
+            <div className="row jc-space-between" style={{ flex: 1}}>
+              <div className="row" style={{ flex: 1, justifyContent:"space-evenly", flexWrap: "wrap"}}>
+                <RadioInput activeColor="grey" text="info" active={ this.state.type === 'info'} onChange={()=>this.onChangeState('info')}/>
+                <RadioInput activeColor="#2CC51F" text="success" active={ this.state.type === 'success'} onChange={()=>this.onChangeState('success')}/>
+                <RadioInput activeColor="orange" text="warn" active={ this.state.type === 'warn'} onChange={()=>this.onChangeState('warn')}/>
+                <RadioInput activeColor="#F55C2C" text="error" active={ this.state.type === 'error'} onChange={()=>this.onChangeState('error')}/>
+              </div>
             </div>
             <div className="row jc-space-between position-bottom width-full">
               <div>
@@ -76,6 +87,7 @@ class App extends Component{
           </div>
           
         </div>
+        <ToastContainer/>
         <ToastContainer align={"left"} position={"top"} id="toast-comp-1"/>
         <ToastContainer align={"center"} position={"top"} id="toast-comp-2"/>
         <ToastContainer align={"right"} position={"top"} id="toast-comp-3"/>
@@ -87,7 +99,7 @@ class App extends Component{
         </div>
         <style jsx>{`
           .app {
-            height: 100vh;
+            min-height: 100vh;
           }
           .container {
             background: #4b6cb7;  /* fallback for old browsers */
@@ -132,6 +144,19 @@ class App extends Component{
           .width-full {
             width: 100%;
           }
+          .heading-title {
+            font-size: 60px;
+          }
+          @media (max-width: 720px ) {
+            .heading-title {
+              font-size: 40px;
+            }
+          }
+          @media (max-width: 480px ) {
+            .heading-title {
+              font-size: 30px;
+            }
+          }
           .sub-heading {
             margin-bottom: 4px;
             text-align: center;
@@ -163,6 +188,11 @@ class App extends Component{
             display: flex;
             justify-content: center;
             color: #bebebe;
+          }
+          .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
           }
           `}</style>
       </div>

@@ -93,6 +93,7 @@ The toast has 4 types of default events - info, success, error and warning and a
 |----------|-------------|-------|
 | duration | Number of seconds to show toast on screen | *Integer* |
 | type     | Type of toast - info, error, success and warning | *String*|
+| title    | The title of the toast | *String* |
 | targetId | Target container id | *String* |
 | position | top , bottom  | *String* | 
 | | default value is bottom || 
@@ -110,7 +111,7 @@ toast.notify('This is a success toast', {
 ----
 
 # Todo
-* Custom desing
+* Custom design
 * Toast stacking
 
 # Miscellaneous

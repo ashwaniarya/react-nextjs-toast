@@ -1,6 +1,8 @@
 # A simple nextjs toast component
 This toast component can be used on nextjs projects or any other react project which uses style-jsx.
 
+<h2><a href="https://ashwaniarya.github.io/react-nextjs-toast/">DEMO</a></h2>
+
 ## Installation
 
 Using npm

@@ -55,7 +55,7 @@ class ToastBottom extends React.Component {
         {/* <div className="side-bar"></div> */}
         <div id="toast-message" className="toast-message">
           {/* Message to be added here */}
-          <div className="title">{config[props.type].label}</div>
+          <div className="title">{props.title || config[props.type].label}</div>
           <div>{ props.message }</div>
           {/* // TODO */}
           {/* Actions buttons */}
@@ -157,7 +157,7 @@ class ToastTop extends React.Component {
         {/* <div className="side-bar"></div> */}
         <div id="toast-message" className="toast-message">
           {/* Message to be added here */}
-          <div className="title">{config[props.type].label}</div>
+          <div className="title">{props.title || config[props.type].label}</div>
           <div>{ props.message }</div>
           {/* // TODO */}
           {/* Actions buttons */}
@@ -244,7 +244,8 @@ export const toast = {
   notify: ( message , options = null) => {
     let duration = 5
     let type = 'info'
-    let targetId = "toast-component"
+    let targetId = "toast-container"
+    let title = null
     if( options ){
       if( options.duration)
         duration = options.duration
@@ -254,8 +255,12 @@ export const toast = {
       if(options.targetId) {
         targetId = options.targetId;
       }
+      if(options.title) {
+        title = options.title
+      }
     } 
     let trasitionPercentage = 0.3*(100/duration)
+    console.log(targetId);
     if(!options.position || options.position === 'bottom') {
       render(<ToastBottom 
         message={message} 
@@ -263,6 +268,7 @@ export const toast = {
         type={type || 'info'}
         transitionPercentage={trasitionPercentage} 
         targetId={targetId}
+        title={title}
         onRemove={options.onRemove || null}
         duration={duration} />, document.getElementById(targetId));
     }
@@ -273,6 +279,7 @@ export const toast = {
         type={type || 'info'}
         transitionPercentage={trasitionPercentage} 
         targetId={targetId}
+        title={title}
         onRemove={options.onRemove || null}
         duration={duration} />, document.getElementById(targetId));
     }
@@ -303,7 +310,7 @@ export const ToastContainer = ( props ) => {
             (()=> { 
               if(props.position === 'bottom') return 'bottom: 0px;';
               if(props.position === 'top') return 'top: 16px;';
-              else return ''
+              else return 'bottom: 0px;';
             })()
           }
           display: flex;

@@ -8,9 +8,7 @@
     "license": "MIT",
     "scripts": {
         "start": "webpack --watch",
-        "build": "webpack --mode=production --type=package",
-        "dev": "webpack-dev-server --mode=development",
-        "demobuild": "webpack --mode=production --type=demo"
+        "build": "webpack --mode=production "
     },
     "peerDependencies": {
         "prop-types": "^15.6.0",
@@ -24,7 +22,6 @@
         "babel-preset-env": "^1.6.1",
         "babel-preset-react": "^6.16.0",
         "babel-preset-stage-0": "^6.24.1",
-        "gh-pages": "^3.0.0",
         "path": "^0.12.7",
         "prop-types": "^15.6.0",
         "react": "^16.0.0",

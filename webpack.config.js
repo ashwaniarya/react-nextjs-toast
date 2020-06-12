@@ -22,7 +22,7 @@ module.exports = (env, argv) => {
               filename: "bundle.js"
             },
             devServer: {
-              contentBase: path.join(__dirname, "public/"),
+              contentBase: path.join(__dirname, "/"),
               port: 3000,
               publicPath: "http://192.168.0.102:3000/dist/",
               hotOnly: true

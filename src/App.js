@@ -18,7 +18,7 @@ class App extends Component{
           <h1>React NextJs Toast</h1>
           <h3 className="sub-heading">No complicated setup, just install and start using.</h3>
           <p className="heading-para">An out of the box toast component for nextjs framework or any project using style-jsx.</p>
-          <h3>DOCS</h3>
+          <h3><a href="https://github.com/ashwaniarya/react-nextjs-toast/blob/master/README.md" style={{ color: "#fff"}}>DOCS</a></h3>
 
         </div>
         <div className="main-container" style={{ paddingBottom: 24}}>

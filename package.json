@@ -1,7 +1,7 @@
 {
     "homepage": "https://ashwaniarya.github.io/react-nextjs-toast",
     "name": "react-nextjs-toast",
-    "version": "1.2.4",
+    "version": "1.2.5",
     "description": "A simple toast component for nextjs framework or project using style-jsx",
     "main": "./lib/toast.js",
     "author": "Ashwani Arya",

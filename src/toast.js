@@ -31,7 +31,6 @@ const config = {
 }
 class ToastBottom extends React.Component {
   componentDidMount() {
-    console.log('ToastBottom');
 
     this.timeout = setTimeout(()=>{ 
       let tId = this.props.targetId;
@@ -134,7 +133,6 @@ class ToastBottom extends React.Component {
 }
 class ToastTop extends React.Component {
   componentDidMount() {
-    console.log('ToastTop');
     this.timeout = setTimeout(()=>{ 
       let tId = this.props.targetId;
       this.remove(tId); }, this.props.duration*1000);
@@ -268,7 +266,6 @@ export const toast = {
       }
     } 
     let trasitionPercentage = 0.3*(100/duration)
-    console.log(targetId);
     if(position === 'bottom') {
       render(<ToastBottom 
         message={message} 

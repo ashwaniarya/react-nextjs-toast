@@ -247,6 +247,7 @@ export const toast = {
     let targetId = "toast-container"
     let title = null
     let position = 'bottom'
+    let onRemove = null
     if( options ){
       if( options.duration)
         duration = options.duration
@@ -262,6 +263,9 @@ export const toast = {
       if(options.position) {
         position = options.position
       }
+      if(options.onRemove) {
+        onRemove = options.onRemove
+      }
     } 
     let trasitionPercentage = 0.3*(100/duration)
     console.log(targetId);
@@ -273,7 +277,7 @@ export const toast = {
         transitionPercentage={trasitionPercentage} 
         targetId={targetId}
         title={title}
-        onRemove={options.onRemove || null}
+        onRemove={onRemove}
         duration={duration} />, document.getElementById(targetId));
     }
     else {
@@ -284,7 +288,7 @@ export const toast = {
         transitionPercentage={trasitionPercentage} 
         targetId={targetId}
         title={title}
-        onRemove={options.onRemove || null}
+        onRemove={onRemove}
         duration={duration} />, document.getElementById(targetId));
     }
     

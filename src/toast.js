@@ -246,6 +246,7 @@ export const toast = {
     let type = 'info'
     let targetId = "toast-container"
     let title = null
+    let position = 'bottom'
     if( options ){
       if( options.duration)
         duration = options.duration
@@ -258,10 +259,13 @@ export const toast = {
       if(options.title) {
         title = options.title
       }
+      if(options.position) {
+        position = options.position
+      }
     } 
     let trasitionPercentage = 0.3*(100/duration)
     console.log(targetId);
-    if(!options.position || options.position === 'bottom') {
+    if(position === 'bottom') {
       render(<ToastBottom 
         message={message} 
         slideIn={true} 

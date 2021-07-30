@@ -54,7 +54,7 @@ class ToastBottom extends React.Component {
         {/* <div className="side-bar"></div> */}
         <div id="toast-message" className="toast-message">
           {/* Message to be added here */}
-          <div className="title">{props.title || config[props.type].label}</div>
+          {props.title && <div className="title">{props.title}</div>}
           <div>{ props.message }</div>
           {/* // TODO */}
           {/* Actions buttons */}
@@ -155,7 +155,7 @@ class ToastTop extends React.Component {
         {/* <div className="side-bar"></div> */}
         <div id="toast-message" className="toast-message">
           {/* Message to be added here */}
-          <div className="title">{props.title || config[props.type].label}</div>
+          {props.title && <div className="title">{props.title}</div>}
           <div>{ props.message }</div>
           {/* // TODO */}
           {/* Actions buttons */}
